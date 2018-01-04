@@ -5,7 +5,7 @@ ENV maintainer litnimaxster@gmail.com
 
 RUN	apk update && apk upgrade
 
-RUN apk add libltdl unixodbc
+RUN apk add libltdl unixodbc psqlodbc
 
 RUN apk add sudo findutils less curl sngrep ngrep tcpdump libcap libedit libxml2 jansson sqlite sqlite-libs libuuid
 

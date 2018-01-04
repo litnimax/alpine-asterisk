@@ -5,7 +5,7 @@ ENV maintainer litnimaxster@gmail.com
 
 RUN	apk update && apk upgrade
 
-RUN apk add libltdl unixodbc
+RUN apk add libltdl unixodbc psqlodbc
 
 RUN apk add sudo findutils less curl sngrep ngrep tcpdump
 
@@ -24,9 +24,6 @@ VOLUME ["/work"]
 # TODO: move this to dependencies of building Asterisk
 RUN apk update && apk add alpine-sdk libtool bsd-compat-headers ncurses-dev popt-dev newt-dev zlib-dev libedit-dev libressl-dev libxml2-dev \
     lua-dev libcap-dev jansson-dev util-linux-dev libresample  sqlite-dev unixodbc-dev libsrtp-dev
-
-# grab dockerize for generation of the configuration file and wait on postgres
-RUN curl https://github.com/jwilder/dockerize/releases/download/v0.6.0/dockerize-alpine-linux-amd64-v0.6.0.tar.gz -L | tar xz -C /usr/local/bin
 
 # Build Asterisk
 ADD ./aports/asterisk/ /home/packager/asterisk/
